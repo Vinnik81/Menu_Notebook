@@ -29,6 +29,7 @@ namespace WinFormsAppNotebook
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormReplacement));
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCancelR = new System.Windows.Forms.Button();
             this.buttonReplace = new System.Windows.Forms.Button();
@@ -113,6 +114,7 @@ namespace WinFormsAppNotebook
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 137);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FormReplacement";

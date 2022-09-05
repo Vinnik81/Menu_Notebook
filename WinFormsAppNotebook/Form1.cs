@@ -226,12 +226,25 @@ namespace WinFormsAppNotebook
         private void repToolStripMenuItem_Click(object sender, EventArgs e)
         {
             formReplacement.ShowDialog();
-            if (!richTextBox1.Text.Contains(formReplacement.textBoxWhatR.Text))
+            if (formReplacement.IsReplace && formReplacement.DialogResult == DialogResult.OK)
             {
-                MessageBox.Show($"Не удаётся найти {formReplacement.textBoxWhatR.Text}", "Warning", MessageBoxButtons.OK);
-                return;
+                try
+                {
+                    if (!richTextBox1.Text.Contains(formReplacement.textBoxWhatR.Text))
+                    {
+                        MessageBox.Show($"Не удаётся найти {formReplacement.textBoxWhatR.Text}", "Warning", MessageBoxButtons.OK);
+                        return;
+                    }
+                    richTextBox1.Text = richTextBox1.Text.Replace(formReplacement.textBoxWhatR.Text, $"{formReplacement.textBoxThan.Text}");
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show($"Не удаётся найти {formReplacement.textBoxWhatR.Text}", "Warning", MessageBoxButtons.OK);
+                }
+               
             }
-            richTextBox1.Text = richTextBox1.Text.Replace(formReplacement.textBoxWhatR.Text, $"{formReplacement.textBoxThan.Text}");
+            
         }
     }
 }
